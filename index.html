@@ -1,0 +1,353 @@
+<style>
+  .aside {
+    background-color: #212121;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    padding-top: 20em;
+    padding-bottom: 20em;
+    transition: transform 300ms;
+  }
+
+  .aside--light {
+    background-color: #fff;
+    color: #212121;
+  }
+
+  .aside--right {
+    right: 0;
+    transition-delay: 700ms;
+    transform: translateX(102%);
+  }
+
+  .aside--left {
+    left: 0;
+    transform: translateX(-102%);
+  }
+
+  .aside.active {
+    will-change: transform;
+    transform: translateX(0);
+  }
+
+  .section--primary {
+    background-color: #6B3299;
+    color: #fff;
+  }
+
+  .section--dark {
+    background-color: #212121;
+    color: #fff;
+  }
+
+  .section--transparent {
+    background-color: rgba(107, 50, 153, .5);
+    color: #fff;
+  }
+
+  body {
+    font-family: sans-serif;
+  }
+
+  h1,h2,h3 {
+    font-size: 300%;
+  }
+
+  .site__header > .title {
+    transition: color 200ms;
+    color: #fff;
+  }
+
+  .site__header.active > .title {
+    color: #212121;
+  }
+
+  .site__header > button {
+    transition: opacity 200ms;
+    opacity: 0;
+  }
+
+  .site__header.active > button {
+    opacity: 1;
+  }
+
+  .site__footer {
+    position: fixed;
+    bottom: 0;
+    min-height: 5em;
+    width: 100%;
+    opacity: 0;
+    background-color: #fff;
+    transition: opacity 300ms;
+  }
+
+  .site__footer.active {
+    opacity: 1;
+  }
+
+  .site__background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .phones {
+    position: relative;
+    will-change: top, transform;
+    display: inline-block;
+    left: 50%;
+    top: 50%;
+    transition: transform 700ms, top 700ms;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .phones.active {
+    transform: translateX(-50%) translateY(-100%) scale(1.3);
+    top: calc(100vh + 20px);
+  }
+
+  .section--parallax {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 80%;
+    margin-top: -5em;
+    transform: translateY(0);
+    transition: transform 700ms;
+  }
+
+  .section--high {
+    z-index: 101;
+  }
+
+  .section--parallax.active {
+    transform: translateY(5em);
+  }
+
+  #parallax-1 .fp-bg {
+    background-image: url('https://hoteltonight.wpengine.com/wp-content/uploads/2017/05/img-culture-1-min.png');
+  }
+
+  #parallax-2 .fp-bg{
+    background-image: url('https://hoteltonight.wpengine.com/wp-content/uploads/2017/05/img-culture-2-min.png');
+  }
+
+  .fp-bg {
+    background-size: cover;
+    background-position: center 80%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+
+
+  .site__content > * {
+    grid-column: 1 / 5;
+    display: inline-grid;
+    grid-template-columns: 1fr minmax(auto, 600px) minmax(auto, 600px) 1fr;
+    display: subgrid;
+  }
+
+  .site__header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+  }
+
+  .layout__split {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 600px) minmax(auto, 600px) 1fr;
+    grid-template: ". left right .";
+  }
+
+  .site__header > .title {
+    grid-column-start: 2;
+  }
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css">
+
+
+<div id="site-grid" class="site__grid">
+
+  <!-- main site header -->
+  <header id="site-header" class="site__header layout__split">
+    <h1 class="title">Hotel Tonight</h1>
+    <button class="button">download app</button>
+  </header>
+
+  <!-- top side-container -->
+  <aside id="aside1" class="aside aside--left active">
+		<h1>The Only Booking App You Need</h1>
+		<p>Download to score amazing last-minute hotel deals. </p>
+		<p>
+			<small>
+				Available on the <a href="https://app.adjust.com/ik4wq9" target="_blank">App Store</a> and <a href="https://app.adjust.com/ajva6r" target="_blank">Google Play</a>.<br>
+				Standard SMS fees may apply.
+			</small>
+		</p>
+  </aside>
+
+  <!-- main content -->
+  <main id="site-content" class="site__content">
+    <section class="section">
+      <!-- splash screen -->
+    </section>
+    <section class="section"></section>
+    <section class="section section--transparent">
+      <!-- pitch 1 -->
+      <h2>Hotels give us their unsold rooms.</h2>
+    </section>
+    <section class="section section--transparent">
+      <!-- pitch 2 -->
+      <h2>We show you each day's best deals.</h2>
+    </section>
+    <section class="section section--transparent">
+      <!-- pitch 3 -->
+      <h2>You grab life by the headboard.</h2>
+    </section>
+    <section class="section section--primary fp-auto-height" >
+      <!-- cta -->
+      <div class="layout__split">
+      <h2>Seriously, get the app.</h2>
+      <div>
+        <input type="tel"></input>
+        <button>Download the App</button>
+      </div>
+      </div>
+    </section>
+    <section id="parallax-1" class="section section--parallax">
+      <!-- parallax 1 -->
+      <div class="fp-bg"></div>
+    </section>
+    <section class="section section--dark">
+      <!-- features -->
+      <div class="feature">
+        <div class="fp-bg"></div>
+        <header>7 Days Out</header>
+        <p>Book for tonight or up to a week in advance.</p>
+      </div>
+
+      <div class="feature">
+        <div class="fp-bg"></div>
+        <header>Mobile Only</header>
+        <p>Killer deals, exclusively on your mobile device.</p>
+      </div>
+
+      <div class="feature">
+        <div class="fp-bg"></div>
+        <header>Sweet Hotels</header>
+        <p>We only work places where we'd stay, too.</p>
+      </div>
+      <div class="feature">
+        <div class="fp-bg"></div>
+        <header>HT Perks</header>
+        <p>The more you book, the better the deals get.</p>
+      </div>
+    </section>
+    <section id='parallax-2' class="section section--parallax">
+      <!-- parallax 2 -->
+      <div class="fp-bg"></div>
+    </section>
+    <section class="section section--primary section--high">
+      <!-- links -->
+      <h2>Plan Less. Live More.</h2>
+      <aside id="aside2" class="aside aside--right aside--light">
+        <!-- bottom side-container -->
+        <ul>
+          <li>Our Cities</li>
+          <li>About</li>
+          <li>Jobs</li>
+          <li>For Hotel Partners</li>
+          <li>Support</li>
+        </ul>
+        Follow Us
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa fa-tumbler"></i></a></li>
+          <li><a href="#"><i class="fa fa-medium"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+  <div class="site__background">
+    <!-- phone background -->
+    <div id="phones" class="phones active">
+      <img src="https://hoteltonight.wpengine.com/wp-content/themes/Hotel%20Tonight%20Theme/assets/images/hotel-tonight-ios-1-min.png" alt="Last Minute Hotel Deals at Great Hotels" class="img-responsive">
+      <img src="https://hoteltonight.wpengine.com/wp-content/themes/Hotel%20Tonight%20Theme/assets/images/hotel-tonight-ios-2-min.png ?&gt;" alt="Last Minute Hotel Deals at Great Hotels" class="img-responsive">
+      <img src="https://hoteltonight.wpengine.com/wp-content/themes/Hotel%20Tonight%20Theme/assets/images/hotel-tonight-ios-3-min.png ?&gt;" alt="Last Minute Hotel Deals at Great Hotels" class="img-responsive">
+    </div>
+  </div>
+  <footer id="site-footer" class="site__footer">
+    <!-- main site footer -->
+  </footer>
+</div>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="js/jquery.fullPage.js"></script>
+<script>
+$(document).ready(function() {
+	$('#site-content').fullpage({
+    paddingTop: '10em',
+    paddingBottom: '10em',
+    parallax: true,
+    onLeave: function(index, nextIndex, direction){
+      // onLeave
+      switch (index) {
+        case 1:
+          // leaving 1
+          $('#aside1').removeClass('active');
+          $('#site-header').addClass('active');
+          break;
+        case 2:
+          if(direction === 'down') $('#phones').removeClass('active');
+          break;
+        case 7:
+          $('#parallax-1').addClass('active');
+          break;
+        case 9:
+          $('#parallax-2').addClass('active');
+          if(direction === 'up') $('#site-footer').removeClass('active');
+          break;
+        case 10:
+          break;
+        default:
+      }
+
+      // onEnter
+      switch (nextIndex) {
+        case 1:
+          // entering 1
+          $('#aside1').addClass('active');
+          $('#site-header').removeClass('active');
+          break;
+        case 2:
+          if(direction === 'up') $('#phones').addClass('active');
+          break;
+        case 7:
+          $('#parallax-1').removeClass('active');
+          break;
+        case 9:
+          // entering 3
+          $('#parallax-2').removeClass('active');
+          if(direction === 'down') $('#site-footer').addClass('active');
+          break;
+        case 10:
+          // entering 4
+          $('#aside2').addClass('active');
+          break;
+        default:
+      }
+    }
+  });
+});
+</script>
